@@ -11,9 +11,9 @@ var browserify = require('browserify'),
     os         = require('os');
 
 //    find which browser to open for dev
-var browser = os.platform() === 'linux' ? 'google-chrome' : (
-	          os.platform() === 'darwin' ? "Google Chrome" : (
-	          os.platform() === 'win32' ? 'chrome' : 'firefox'));
+var browser   = os.platform() === 'linux' ? 'google-chrome' : (
+                os.platform() === 'darwin' ? "Google Chrome" : (
+                os.platform() === 'win32' ? 'chrome' : 'firefox'));
 //    set default env to development, unless otherwise stated
 var env       = process.env.NODE_ENV || 'development';
 //    set to any output location
@@ -36,10 +36,10 @@ var outputDir = 'builds/development';
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('jade', function() {
-	return gulp.src('src/templates/**/*.jade')
-		.pipe(jade())
-		.pipe(gulp.dest(outputDir))
-		.pipe(connect.reload());
+    return gulp.src('src/templates/**/*.jade')
+        .pipe(jade())
+        .pipe(gulp.dest(outputDir))
+        .pipe(connect.reload());
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -53,12 +53,12 @@ gulp.task('jade', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('js', function() {
-	return browserify('src/js/index.js', { debug: env === 'development' })
-	    .bundle()
-	    .pipe(source('index.js'))
-	    .pipe(gutil.env.production ? streamify(uglify()) : gutil.noop())
-	    .pipe(gulp.dest(outputDir + '/js'))
-	    .pipe(connect.reload());
+    return browserify('src/js/index.js', { debug: env === 'development' })
+        .bundle()
+        .pipe(source('index.js'))
+        .pipe(gutil.env.production ? streamify(uglify()) : gutil.noop())
+        .pipe(gulp.dest(outputDir + '/js'))
+        .pipe(connect.reload());
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -76,10 +76,10 @@ gulp.task('sass', function() {
 
     gutil.env.production ? config.outputStyle = "compressed" : config.sourceComments = "map";
 
-	return gulp.src('src/sass/main.scss')
-	    .pipe(sass(config))
-	    .pipe(gulp.dest(outputDir + '/css'))
-	    .pipe(connect.reload());
+    return gulp.src('src/sass/main.scss')
+        .pipe(sass(config))
+        .pipe(gulp.dest(outputDir + '/css'))
+        .pipe(connect.reload());
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -88,11 +88,11 @@ gulp.task('sass', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('connect', function() {
-	connect.server({
-		root: [outputDir],
-		port: 3000,
-		livereload: true
-	});
+    connect.server({
+        root: [outputDir],
+        port: 3000,
+        livereload: true
+    });
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -101,9 +101,9 @@ gulp.task('connect', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('watch', function() {
-	gulp.watch('src/templates/**/*.jade', ['jade']);
-	gulp.watch('src/js/**/*.js', ['js']);
-	gulp.watch('src/sass/**/*.scss', ['sass']);
+    gulp.watch('src/templates/**/*.jade', ['jade']);
+    gulp.watch('src/js/**/*.js', ['js']);
+    gulp.watch('src/sass/**/*.scss', ['sass']);
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -112,13 +112,13 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('open', function() {
-	var config = {
-		uri: 'http://localhost:3000',
-		app: browser
-	};
+    var config = {
+        uri: 'http://localhost:3000',
+        app: browser
+    };
 
-	gulp.src(__filename)
-	    .pipe(open(config));
+    gulp.src(__filename)
+        .pipe(open(config));
 });
 
 ////////////////////////////////////////////////////////////////////////////
@@ -127,3 +127,4 @@ gulp.task('open', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('default', ['js', 'jade', 'sass', 'connect', 'watch', 'open']);
+
