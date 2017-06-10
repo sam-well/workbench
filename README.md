@@ -3,7 +3,7 @@
 ## Quick-Start
 
 1. run `gulp` to activate the build watches and browser with live reloading
-2. as you build files in `/src`, results appear in `/builds`
+2. as you build files in `/src`, results appear in `/builds/development`
 
 ## Overview
 
