@@ -16,7 +16,7 @@ var browser = os.platform() === 'linux' ? 'google-chrome' : (
 	          os.platform() === 'win32' ? 'chrome' : 'firefox'));
 //    set default env to development, unless otherwise stated
 var env       = process.env.NODE_ENV || 'development';
-//    shortcut for output
+//    set to any output location
 var outputDir = 'builds/development';
 
 ////////////////////////////////////////////////////////////////////////////
