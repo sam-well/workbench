@@ -1,14 +1,14 @@
 {
   "name": "workbench",
   "version": "1.0.0",
-  "description": "",
+  "description": "A front-end workspace that promotes utility and readability",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/sam-well/workbench.git"
+    "url": "git+https://github.com/sam-well/workbench.git"
   },
   "author": "Sam Rodriguez <sam.rodriguez101@gmail.com>",
   "license": "ISC",
@@ -20,8 +20,8 @@
     "browserify": "^13.0.0",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.3.1",
-    "gulp-jade": "^1.1.0",
     "gulp-open": "^1.0.0",
+    "gulp-pug": "^3.3.0",
     "gulp-sass": "^2.1.1",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.5.1",

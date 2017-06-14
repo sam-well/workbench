@@ -2,7 +2,7 @@ var browserify = require('browserify'),
     connect    = require('gulp-connect'),
     gulp       = require('gulp'),
     gutil      = require('gulp-util'),
-    jade       = require('gulp-jade'),
+    pug        = require('gulp-pug'),
     sass       = require('gulp-sass'),
     source     = require('vinyl-source-stream'),
     streamify  = require('gulp-streamify'),
@@ -22,7 +22,7 @@ var outputDir = 'builds/development';
 ////////////////////////////////////////////////////////////////////////////
 //
 //  TASKS
-//    - 'jade'
+//    - 'pug'
 //    - 'js'
 //    - 'sass'
 //    - 'connect'
@@ -31,13 +31,13 @@ var outputDir = 'builds/development';
 //    - 'default'
 //
 ////////////////////////////////////////////////////////////////////////////
-//     task: JADE
-//  *.jade in /src  ==>  *.html in outputDir
+//     task: pug
+//  *.pug in /src  ==>  *.html in outputDir
 ////////////////////////////////////////////////////////////////////////////
 
-gulp.task('jade', function() {
-    return gulp.src('src/templates/**/*.jade')
-        .pipe(jade())
+gulp.task('pug', function() {
+    return gulp.src('src/templates/**/*.pug')
+        .pipe(pug())
         .pipe(gulp.dest(outputDir))
         .pipe(connect.reload());
 });
@@ -97,11 +97,11 @@ gulp.task('connect', function() {
 
 ////////////////////////////////////////////////////////////////////////////
 //     task: WATCH
-//  recompile if .jade, .js or .scss are updated
+//  recompile if .pug, .js or .scss are updated
 ////////////////////////////////////////////////////////////////////////////
 
 gulp.task('watch', function() {
-    gulp.watch('src/templates/**/*.jade', ['jade']);
+    gulp.watch('src/templates/**/*.pug', ['pug']);
     gulp.watch('src/js/**/*.js', ['js']);
     gulp.watch('src/sass/**/*.scss', ['sass']);
 });
@@ -126,5 +126,5 @@ gulp.task('open', function() {
 //  runs all tasks
 ////////////////////////////////////////////////////////////////////////////
 
-gulp.task('default', ['js', 'jade', 'sass', 'connect', 'watch', 'open']);
+gulp.task('default', ['js', 'pug', 'sass', 'connect', 'watch', 'open']);
 
