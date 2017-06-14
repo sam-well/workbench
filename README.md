@@ -1,13 +1,13 @@
 # Workbench
 A front-end workspace that promotes utility and
-readability.
+readability
 
 ## Quick-Start
 
 1. Clone repo:
     git clone https://github.com/sam-well/workbench
 1. `cd` into the repo and `npm install`
-1. run `gulp`. This activates:
+1. Run `gulp`, which activates:
     - the development server,
     - a browser window with live reloading, and
     - build watches that update and compile your templates
@@ -29,9 +29,4 @@ What it does:
 - \*.scss files in /src  ==>  main.css in outputDir
 - create server on port:3000 with live reloading
 - recompile if .pug, .js or .scss files in /src are updated
-
-### JavaScript
-
-index.js, along with all its dependencies, are compliled into a single index.js thanks to Browserify. This new index.js includes source mapping by default (but disabled in production mode). It is also minified when compliled in production mode.
-
 
