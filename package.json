@@ -1,7 +1,7 @@
 {
   "name": "workbench",
   "version": "1.0.0",
-  "description": "A front-end workspace that promotes utility and readability",
+  "description": "A front-end workspace for utility and readability",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/sam-well/workbench.git"
   },
   "author": "Sam Rodriguez <sam.rodriguez101@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/sam-well/workbench/issues"
   },
